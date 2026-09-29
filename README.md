@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ahmad Syakir — Portfolio (Next.js Mockup)
 
-## Getting Started
+A responsive single-page portfolio built with **Next.js (App Router)**, **TypeScript**, and **Tailwind CSS** for the K-Youth AI Competency "Vibe Coding" assignment.
 
-First, run the development server:
+## Sections
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Home**: intro, call-to-action buttons, quick stats
+- **About Me**: bio, skills, and a journey timeline
+- **Projects**: project cards with categories and tags
+- **Contact**: contact details plus a demo contact form (it shows a thank-you message; nothing is sent)
+
+## Features
+
+- Responsive layout for mobile, tablet, and desktop, with a hamburger menu on small screens
+- Automatic light and dark themes that follow the device setting
+- Custom fonts (Fraunces for headings, Plus Jakarta Sans for body text) via `next/font`
+- All content kept in one file for easy editing
+
+## Project structure
+
+```
+src/
+├── app/
+│   ├── layout.tsx        # Root layout, fonts, page metadata
+│   ├── page.tsx          # Puts all the sections together
+│   └── globals.css       # Tailwind setup + colour theme
+├── components/
+│   ├── Navbar.tsx        # Sticky nav with mobile menu
+│   ├── Hero.tsx          # Home section
+│   ├── About.tsx         # About Me section
+│   ├── Projects.tsx      # Projects section
+│   ├── Contact.tsx       # Contact section
+│   ├── ContactForm.tsx   # Demo contact form
+│   ├── SectionHeading.tsx
+│   └── Footer.tsx
+└── data/
+    └── portfolio.ts      # All text content (edit this to customise)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Run it locally
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Requires Node.js 20 or newer.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm install
+npm run dev
+```
 
-## Learn More
+Then open http://localhost:3000.
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The site is deployed to **GitHub Pages** by the workflow in `.github/workflows/deploy.yml`. Every push to `main` builds a static export (`output: "export"` in `next.config.ts`) and publishes it.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+One-time setup: in the GitHub repo, go to **Settings → Pages** and set **Source** to **GitHub Actions**.
 
-## Deploy on Vercel
+## Notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Content marked `// sample` in `src/data/portfolio.ts` (email, links, location, degree) is placeholder content for this mockup.
